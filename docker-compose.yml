@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  ovpn-vpn1:
+    image: ovpn-jump-proxy-docker
+    environment:
+      - OVPN_PATH=vpn1
+    ports:
+      - "8881:8888"
+      - "2221:22"
+    cap_add:
+      - NET_ADMIN
+  ovpn-vpn2:
+    image: ovpn-jump-proxy-docker
+    environment:
+      - OVPN_PATH=vpn2
+    ports:
+      - "8882:8888"
+      - "2222:22"
+    cap_add:
+      - NET_ADMIN

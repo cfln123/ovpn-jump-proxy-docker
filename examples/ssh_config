@@ -1,0 +1,23 @@
+Host ovpn-vpn1
+    HostName 127.0.0.1
+    Port 2221
+    User root
+    IdentityFile /root/.ssh/keys/ovpn-vpn1-root
+
+Host ovpn-vpn2
+    HostName 127.0.0.1
+    Port 2222
+    User root
+    IdentityFile /root/.ssh/keys/ovpn-vpn2-root
+
+Host host1
+    HostName host1.example.com
+    User root
+    IdentityFile /root/.ssh/keys/host1-root
+    ProxyJump ovpn-vpn1
+
+Host host2
+    HostName host2.example.com
+    User root
+    IdentityFile /root/.ssh/keys/host2-root
+    ProxyJump ovpn-vpn2
